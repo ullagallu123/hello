@@ -40,5 +40,10 @@ public class ProductController {
     public void deleteById(@PathVariable Long id) {
         productService.deleteById(id);
     }
+    // Health check endpoint
+    @GetMapping("/health")
+    public String healthCheck() {
+        return "Application is running!";
+    }
 
 }
