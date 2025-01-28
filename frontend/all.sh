@@ -10,6 +10,9 @@ if [ -z "${BACKEND_PORT}" ]; then
   exit 1
 fi
 
+# Substitute environment variables in nginx.conf and write to /etc/nginx/nginx.conf
 envsubst < /opt/nginx.conf > /etc/nginx/nginx.conf
 
+# Start Nginx in the foreground
 nginx -g 'daemon off;'
+
