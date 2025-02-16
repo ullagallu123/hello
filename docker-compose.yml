@@ -20,8 +20,8 @@ services:
       - DB_USER=crud 
       - DB_PASSWD=CrudApp@1
       - DB_PORT=3306 
-    depends_on:
-      - mysql
+    # depends_on:
+    #   - mysql
     restart: on-failure
     networks:
       - expense
