@@ -8,7 +8,7 @@ docker build -t 3-tier:mysql-v1 .
 ```
 
 ```bash
-docker run --rm -d --name mysql -e MYSQL_ROOT_PASSWORD=ExpenseApp@1 -p 3306:3306 --network crud 3-tier:mysql-v1
+docker run --rm -d --name mysql -e MYSQL_ROOT_PASSWORD=CrudApp@1 -p 3306:3306 --network crud 3-tier:mysql-v1
 ```
 
 ```bash
@@ -21,7 +21,6 @@ docker run -d --name backend \
 -e DB_USER=crud \
 -e DB_PASSWD=CrudApp@1 \
 -e DB_PORT=3306 \
--p 8080:8080 \
 --network crud \
 3-tier:backend-v1
 ```

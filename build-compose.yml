@@ -3,16 +3,16 @@ services:
     build:
       context: ./mysql
       dockerfile: Dockerfile
-    image: java-mysql:v1
+    image: 3-tier:mysql-v1
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: java-backend:v1
+    image: 3-tier:backend-v1
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    image: java-frontend:v1
+    image: 3-tier:frontend-v1
