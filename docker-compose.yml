@@ -1,17 +1,4 @@
 services:
-  # mysql:
-  #   image: siva9666/expense-mysql-v1
-  #   container_name: mysql
-  #   environment:
-  #     - MYSQL_ROOT_PASSWORD=CrudApp@1
-  #   volumes:
-  #     - source: mysql
-  #       target: /var/lib/mysql
-  #       type: volume
-  #   restart: on-failure
-  #   networks:
-  #     - expense
-
   backend:
     image: siva9666/expense-backend:java
     container_name: backend
@@ -20,12 +7,9 @@ services:
       - DB_USER=crud 
       - DB_PASSWD=CrudApp@1
       - DB_PORT=3306 
-    # depends_on:
-    #   - mysql
     restart: on-failure
     networks:
       - expense
-
   frontend:
     image: siva9666/expense-frontend:java
     container_name: frontend
@@ -36,10 +20,6 @@ services:
     restart: on-failure
     networks:
       - expense
-
 networks:
   expense:
     driver: bridge
-
-volumes:
-  mysql:
