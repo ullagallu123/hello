@@ -1,10 +1,4 @@
 services:
-  mysql:
-    build:
-      context: ./mysql
-      dockerfile: Dockerfile
-    image: siva9666/expense-mysql-v1
-
   backend:
     build:
       context: ./backend
