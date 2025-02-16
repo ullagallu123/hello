@@ -1,0 +1,48 @@
+services:
+  mysql:
+    image: java-mysql:v1
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=CrudApp@1
+      - MYSQL_USER=crud
+      - MYSQL_PASSWORD=CrudApp@1
+      - MYSQL_DATABASE=crud_app
+    volumes:
+      - source: mysql
+        target: /var/lib/mysql
+        type: volume
+    restart: on-failure
+    networks:
+      - expense
+
+  backend:
+    image: java-backend:v1
+    container_name: backend
+    environment:
+      - DB_HOST=mysql
+      - MYSQL_USER=crud
+      - MYSQL_PASSWORD=CrudApp@1
+      - MYSQL_DATABASE=crud_app
+    depends_on:
+      - mysql
+    restart: on-failure
+    networks:
+      - expense
+
+  frontend:
+    image: java-frontend:v1
+    container_name: frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    restart: on-failure
+    networks:
+      - expense
+
+networks:
+  expense:
+    driver: bridge
+
+volumes:
+  mysql:
