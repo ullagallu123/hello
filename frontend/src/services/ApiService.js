@@ -1,3 +1,5 @@
+// // TO enable Strict CORS Enable this
+
 // import axios from "axios";
 
 // //const baseURL = process.env.REACT_APP_API_BASE_URL;
@@ -50,10 +52,11 @@
 //   }
 // }
 
+// Any Cors 
+
 import axios from "axios";
 
-// Use a relative path since Nginx will proxy the requests to the backend
-const apiUrl = "/api/products";  // Nginx will proxy requests to /api to your backend
+const apiUrl = "/api/products";
 
 export const getProducts = async () => {
   try {

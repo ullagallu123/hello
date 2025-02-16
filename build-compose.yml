@@ -3,16 +3,17 @@ services:
     build:
       context: ./mysql
       dockerfile: Dockerfile
-    image: 3-tier:mysql-v1
+    image: siva9666/expense-mysql-v1
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: 3-tier:backend-v1
+    image: siva9666/expense-backend:java
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    image: 3-tier:frontend-v1
+    image: siva9666/expense-frontend:java
+
